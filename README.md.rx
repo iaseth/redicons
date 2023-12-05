@@ -1,0 +1,26 @@
+
+# Redicons
+Redicons provides you with an easy way to use [Bootstrap Icons](https://icons.getbootstrap.com/) in your React projects.
+
+I am using {{ gh.link("iaseth/readmix", "readmix") }} for generating this README.
+You can view the source file [here](https://github.com/iaseth/timenames/blob/master/README.md.rx).
+
+
+## How to use redicons in your project
+Install the {{ "redicons" | NpmLink }} npm package:
+=> npm install redicons
+
+
+## Dependencies
+{{ npm.dependencyTable() }}
+
+
+## Dev dependencies
+{{ npm.devDependencyTable() }}
+
+
+## License
+{{ "LICENSE.md" | File }}
+
+
+{{ giveCredit() }}
