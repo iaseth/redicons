@@ -4,12 +4,14 @@ from bs4 import BeautifulSoup
 
 
 SVG_DIRPATH = "bootstrap-icons"
-KNOWN_TAG_NAMES = ["path", "symbol", "circle", "rect"]
+KNOWN_TAGS = [
+	{"name": "path", "knownAttrs": ["d", "fill-rule", "fill-opacity"]},
+	{"name": "symbol", "knownAttrs": ["id", "class", "viewbox"]},
+	{"name": "circle", "knownAttrs": ["cx", "cy", "r"]},
+	{"name": "rect", "knownAttrs": ["width", "height", "x", "y", "rx", "ry", "transform"]}
+]
 
-KNOWN_PATH_ATTRS = ["d", "fill-rule", "fill-opacity"]
-KNOWN_SYMBOL_ATTRS = ["id", "class", "viewbox"]
-KNOWN_CIRCLE_ATTRS = ["cx", "cy", "r"]
-KNOWN_RECT_ATTRS = ["width", "height", "x", "y", "rx", "ry", "transform"]
+KNOWN_TAG_NAMES = [tag["name"] for tag in KNOWN_TAGS]
 
 def verify_sng_and_get_tags(svg_filepath):
 	with open(svg_filepath) as f:
@@ -24,29 +26,18 @@ def verify_sng_and_get_tags(svg_filepath):
 	tags = svg_tag.find_all()
 	for tag in tags:
 		if tag.name not in KNOWN_TAG_NAMES:
-			print(f"\tUnknown tag found: {tag.name} ({svg_filename})")
+			print(f"\tUnknown tag found: {tag.name} ({svg_filepath})")
 			return False
 
-		if tag.name == "path":
-			for attr in tag.attrs:
-				if attr not in KNOWN_PATH_ATTRS:
-					print(f"\t\tUnknown PATH attr found: {attr}")
-					return False
-		elif tag.name == "symbol":
-			for attr in tag.attrs:
-				if attr not in KNOWN_SYMBOL_ATTRS:
-					print(f"\t\tUnknown SYMBOL attr found: {attr}")
-					return False
-		elif tag.name == "circle":
-			for attr in tag.attrs:
-				if attr not in KNOWN_CIRCLE_ATTRS:
-					print(f"\t\tUnknown CIRCLE attr found: {attr}")
-					return False
-		elif tag.name == "rect":
-			for attr in tag.attrs:
-				if attr not in KNOWN_RECT_ATTRS:
-					print(f"\t\tUnknown RECT attr found: {attr}")
-					return False
+		knownAttrs = []
+		for known_tag in KNOWN_TAGS:
+			if known_tag["name"] == tag.name:
+				knownAttrs = known_tag["knownAttrs"]
+
+		for attr in tag.attrs:
+			if attr not in knownAttrs:
+				print(f"\t\tUnknown '{tag.name}' attr found: '{attr}' ({svg_filepath})")
+				return False
 
 	return tags
 
@@ -59,7 +50,7 @@ def main():
 		svg_filepath = os.path.join(SVG_DIRPATH, svg_filename)
 		tags = verify_sng_and_get_tags(svg_filepath)
 		if not tags:
-			print(f"\tSVG contains unknown Tags or Attributes!")
+			print(f"\tSVG contains unknown Tags or Attributes: ({svg_filepath})")
 			continue
 
 		icon = {}
