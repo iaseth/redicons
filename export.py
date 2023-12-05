@@ -14,6 +14,7 @@ KNOWN_TAGS = [
 	{"name": "rect", "knownAttrs": ["width", "height", "x", "y", "rx", "ry", "transform"]}
 ]
 KNOWN_TAG_NAMES = [tag["name"] for tag in KNOWN_TAGS]
+IGNORED_ATTRS = ["class"]
 
 def verify_sng_and_get_tags(svg_filepath):
 	with open(svg_filepath) as f:
@@ -43,6 +44,15 @@ def verify_sng_and_get_tags(svg_filepath):
 
 	return tags
 
+
+def get_tag_object(tag):
+	jo = {}
+	for attr in tag.attrs:
+		if attr not in IGNORED_ATTRS:
+			jo[attr] = tag.attrs[attr]
+	return jo
+
+
 def main():
 	files = os.listdir(SVG_DIRPATH)
 	svg_filenames = [file for file in files if file.endswith(".svg")]
@@ -57,10 +67,10 @@ def main():
 
 		icon = {}
 		icon["name"] = svg_filename[:-4]
-		icon["paths"] = []
-		icon["symbols"] = []
-		icon["circles"] = []
-		icon["rects"] = []
+		icon["paths"] = [get_tag_object(tag) for tag in tags if tag.name == "path"]
+		icon["symbols"] = [get_tag_object(tag) for tag in tags if tag.name == "symbol"]
+		icon["circles"] = [get_tag_object(tag) for tag in tags if tag.name == "circle"]
+		icon["rects"] = [get_tag_object(tag) for tag in tags if tag.name == "rect"]
 		icons.append(icon)
 		# break
 
