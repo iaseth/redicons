@@ -1,16 +1,18 @@
+import json
 import os
 
 from bs4 import BeautifulSoup
 
 
 SVG_DIRPATH = "bootstrap-icons"
+OUTPUT_JSON_PATH = "src/redicons.json"
+
 KNOWN_TAGS = [
 	{"name": "path", "knownAttrs": ["d", "fill-rule", "fill-opacity"]},
 	{"name": "symbol", "knownAttrs": ["id", "class", "viewbox"]},
 	{"name": "circle", "knownAttrs": ["cx", "cy", "r"]},
 	{"name": "rect", "knownAttrs": ["width", "height", "x", "y", "rx", "ry", "transform"]}
 ]
-
 KNOWN_TAG_NAMES = [tag["name"] for tag in KNOWN_TAGS]
 
 def verify_sng_and_get_tags(svg_filepath):
@@ -61,7 +63,12 @@ def main():
 		icon["rects"] = []
 		icons.append(icon)
 		# break
-	# print(icons)
+
+	jo = {}
+	jo["icons"] = icons
+	with open(OUTPUT_JSON_PATH, "w") as f:
+		json.dump(jo, f, indent="\t")
+	print(f"Saved: {OUTPUT_JSON_PATH} ({len(icons)} icons)")
 
 
 if __name__ == "__main__":
