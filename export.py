@@ -80,6 +80,7 @@ def main():
 
 		icon = {}
 		icon["name"] = svg_filename[:-4]
+		icon["className"] = ""
 		icon["paths"] = [get_tag_object(tag) for tag in tags if tag.name == "path"]
 		icon["symbols"] = [get_tag_object(tag) for tag in tags if tag.name == "symbol"]
 		icon["circles"] = [get_tag_object(tag) for tag in tags if tag.name == "circle"]

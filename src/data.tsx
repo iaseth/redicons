@@ -2,25 +2,25 @@ import redIconsJson from './redicons.json';
 
 
 
-interface PathData {
+export interface PathData {
 	d: string,
 	fillRule?: string,
 	fillOpacity?: string
 }
 
-interface SymbolData {
+export interface SymbolData {
 	id: string,
 	className?: string,
 	viewbox: string
 }
 
-interface CircleData {
+export interface CircleData {
 	cx: string,
 	cy: string,
 	r: string
 }
 
-interface RectData {
+export interface RectData {
 	width: string,
 	height: string,
 	x?: string,
@@ -32,6 +32,7 @@ interface RectData {
 
 interface RedIconData {
 	name: string,
+	className: string,
 	paths: PathData[],
 	symbols: SymbolData[],
 	circles: CircleData[],
