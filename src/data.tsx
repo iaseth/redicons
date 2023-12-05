@@ -39,4 +39,4 @@ interface RedIconData {
 	rects: RectData[]
 }
 
-const icons: RedIconData[] = redIconsJson.icons;
+export const icons: RedIconData[] = redIconsJson.icons;
