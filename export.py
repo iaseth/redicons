@@ -16,6 +16,12 @@ KNOWN_TAGS = [
 KNOWN_TAG_NAMES = [tag["name"] for tag in KNOWN_TAGS]
 IGNORED_ATTRS = ["class"]
 
+BETTER_ATTR_NAMES = {
+	"class": "className",
+	"fill-rule": "fillRule",
+	"fill-opacity": "fillOpacity",
+}
+
 def verify_sng_and_get_tags(svg_filepath):
 	with open(svg_filepath) as f:
 		soup = BeautifulSoup(f.read(), "lxml")
@@ -45,11 +51,18 @@ def verify_sng_and_get_tags(svg_filepath):
 	return tags
 
 
+def get_attr_name(attr):
+	if attr in BETTER_ATTR_NAMES:
+		return BETTER_ATTR_NAMES[attr]
+	return attr
+
+
 def get_tag_object(tag):
 	jo = {}
 	for attr in tag.attrs:
 		if attr not in IGNORED_ATTRS:
-			jo[attr] = tag.attrs[attr]
+			attr_name = get_attr_name(attr)
+			jo[attr_name] = tag.attrs[attr]
 	return jo
 
 

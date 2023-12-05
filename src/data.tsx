@@ -4,13 +4,13 @@ import redIconsJson from './redicons.json';
 
 interface PathData {
 	d: string,
-	"fill-rule"?: string,
-	"fill-opacity"?: string
+	fillRule?: string,
+	fillOpacity?: string
 }
 
 interface SymbolData {
 	id: string,
-	"class"?: string,
+	className?: string,
 	viewbox: string
 }
 
