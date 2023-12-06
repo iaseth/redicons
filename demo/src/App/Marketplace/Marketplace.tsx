@@ -4,11 +4,11 @@ import React from 'react';
 
 
 
-interface MainProps {
+interface MarketplaceProps {
 	//
 }
 
-export default function Main ({}: MainProps) {
+export default function Marketplace ({}: MarketplaceProps) {
 	const [query, setQuery] = React.useState("");
 
 	const filterWords = query.trim().split(" ").map(word => word.trim()).filter(word => word);
