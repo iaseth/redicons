@@ -3,13 +3,17 @@ import { TabData } from "../tabs";
 
 
 interface TabButtonProps {
-	data: TabData
+	data: TabData,
+	onClick: () => void,
+	current: boolean
 }
 
 export default function TabButton ({
-	data
+	data, onClick, current
 }: TabButtonProps) {
 	return (
-		<h4 className="basis-0 grow px-3 py-4 odd:bg-red-700">{data.name}</h4>
+		<h4 className={`basis-0 grow px-3 py-5 ${current ? "bg-zinc-200 text-red-800" : "bg-red-500 odd:bg-red-600 cursor-pointer"}`} onClick={onClick}>
+			<span>{data.name}</span>
+		</h4>
 	);
 }

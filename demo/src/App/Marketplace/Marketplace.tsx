@@ -45,7 +45,7 @@ export default function Marketplace ({}: MarketplaceProps) {
 	}, []);
 
 	return (
-		<main className="px-2 py-4 bg-slate-200 min-h-screen">
+		<section className="px-2 py-4 bg-slate-200 min-h-screen">
 			<section className='max-w-5xl mx-auto '>
 				<header className='py-3'>
 					<input className='px-3 py-3 w-full' value={query} ref={inputRef} onChange={e => setQuery(e.target.value)} />
@@ -55,6 +55,6 @@ export default function Marketplace ({}: MarketplaceProps) {
 					{filteredIcons.map((redicon, k) => <IconBox key={k} name={redicon.name} />)}
 				</section>
 			</section>
-		</main>
+		</section>
 	);
 }

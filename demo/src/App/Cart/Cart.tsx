@@ -5,8 +5,8 @@ interface CartProps {}
 
 export default function Cart ({}: CartProps) {
 	return (
-		<main>
+		<section>
 			<h2>Cart</h2>
-		</main>
+		</section>
 	);
 }
