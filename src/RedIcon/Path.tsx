@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { PathData } from "../data";
 
 
@@ -6,8 +7,11 @@ interface PathProps {
 	data: PathData
 }
 
-export default function Path ({data}: PathProps) {
+const Path: FC<PathProps> = ({data}) => {
+	const fillRule = data.fillRule === "evenodd" ? "evenodd" : "nonzero";
 	return (
-		<path d={data.d} fillRule={data.fillRule || "nonzero"} fillOpacity={data.fillOpacity || 1} />
+		<path d={data.d} fillRule={fillRule} fillOpacity={data.fillOpacity || 1} />
 	);
-}
+};
+
+export default Path;

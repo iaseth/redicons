@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { CircleData, PathData, RectData, SymbolData, icons } from "../data";
 import Circle from "./Circle";
 import Path from "./Path";
@@ -11,10 +12,10 @@ interface RedIconProps {
 	size?: number,
 }
 
-export default function RedIcon ({
+const RedIcon: FC<RedIconProps> =  ({
 	name,
 	size=16
-}: RedIconProps) {
+}) => {
 	const icon = icons.find(icon => icon.name === name);
 	if (!icon) {
 		return null;
@@ -33,4 +34,6 @@ export default function RedIcon ({
 			{icon.rects.map((rect: RectData) => <Rect data={rect} />)}
 		</svg>
 	);
-}
+};
+
+export default RedIcon;

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { SymbolData } from "../data";
 
 
@@ -6,8 +7,10 @@ interface SymbolProps {
 	data: SymbolData
 }
 
-export default function Symbol ({data}: SymbolProps) {
+const Symbol: FC<SymbolProps> = ({data}) => {
 	return (
 		<symbol id={data.id} className={data.className} viewBox={data.viewbox} />
 	);
-}
+};
+
+export default Symbol;
