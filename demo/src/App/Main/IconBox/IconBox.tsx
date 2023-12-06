@@ -1,4 +1,4 @@
-import RedIcon from 'redicons';
+import { RedIcon } from 'redicons';
 
 
 
