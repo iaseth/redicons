@@ -1,6 +1,6 @@
 {
   "name": "redicons",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Bootstrap Icons for your React projects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

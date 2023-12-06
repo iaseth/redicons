@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CircleData, PathData, RectData, SymbolData, icons } from "../data";
+import { CircleData, PathData, RectData, SymbolData, redicons } from "../data";
 import Circle from "./Circle";
 import Path from "./Path";
 import Rect from "./Rect";
@@ -16,7 +16,7 @@ const RedIcon: FC<RedIconProps> =  ({
 	name,
 	size=16
 }) => {
-	const icon = icons.find(icon => icon.name === name);
+	const icon = redicons.find(icon => icon.name === name);
 	if (!icon) {
 		return null;
 	}
