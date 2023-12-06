@@ -8,9 +8,9 @@ interface IconBoxProps {
 
 export default function IconBox ({name}: IconBoxProps) {
 	return (
-		<div className='px-2 py-4 bg-white text-center'>
-			<header className='inline-block mx-auto'>
-				<RedIcon name={name} size={32} />
+		<div className='px-2 py-2 bg-white text-center'>
+			<header className='py-2'>
+				<RedIcon name={name} size={32} className='mx-auto' fill='red' />
 			</header>
 			<footer>
 				<h6>
