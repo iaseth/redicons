@@ -8,6 +8,6 @@ interface SymbolProps {
 
 export default function Symbol ({data}: SymbolProps) {
 	return (
-		<symbol id={data.id} className={data.className} viewbox={data.viewbox} />
+		<symbol id={data.id} className={data.className} viewBox={data.viewbox} />
 	);
 }
