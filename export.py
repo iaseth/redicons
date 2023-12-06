@@ -22,7 +22,7 @@ BETTER_ATTR_NAMES = {
 	"fill-opacity": "fillOpacity",
 }
 
-def verify_sng_and_get_tags(svg_filepath):
+def verify_svg_and_get_tags(svg_filepath):
 	with open(svg_filepath) as f:
 		soup = BeautifulSoup(f.read(), "lxml")
 
@@ -32,6 +32,8 @@ def verify_sng_and_get_tags(svg_filepath):
 		return False
 
 	svg_tag = svg_tags[0]
+	className = " ".join(svg_tag.attrs["class"]) if "class" in svg_tag.attrs else ""
+
 	tags = svg_tag.find_all()
 	for tag in tags:
 		if tag.name not in KNOWN_TAG_NAMES:
@@ -48,7 +50,7 @@ def verify_sng_and_get_tags(svg_filepath):
 				print(f"\t\tUnknown '{tag.name}' attr found: '{attr}' ({svg_filepath})")
 				return False
 
-	return tags
+	return tags, className
 
 
 def get_attr_name(attr):
@@ -73,14 +75,15 @@ def main():
 	for idx, svg_filename in enumerate(svg_filenames):
 		# print(f"{idx+1:4} => {svg_filename}")
 		svg_filepath = os.path.join(SVG_DIRPATH, svg_filename)
-		tags = verify_sng_and_get_tags(svg_filepath)
-		if not tags:
+		retval = verify_svg_and_get_tags(svg_filepath)
+		if not retval:
 			print(f"\tSVG contains unknown Tags or Attributes: ({svg_filepath})")
 			continue
 
+		tags, className = retval
 		icon = {}
 		icon["name"] = svg_filename[:-4]
-		icon["className"] = ""
+		icon["className"] = className
 		icon["paths"] = [get_tag_object(tag) for tag in tags if tag.name == "path"]
 		icon["symbols"] = [get_tag_object(tag) for tag in tags if tag.name == "symbol"]
 		icon["circles"] = [get_tag_object(tag) for tag in tags if tag.name == "circle"]
