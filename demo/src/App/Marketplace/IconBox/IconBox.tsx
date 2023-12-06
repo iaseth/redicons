@@ -3,12 +3,15 @@ import { RedIcon } from 'redicons';
 
 
 interface IconBoxProps {
-	name: string
+	name: string,
+	onClick: () => void
 }
 
-export default function IconBox ({name}: IconBoxProps) {
+export default function IconBox ({
+	name, onClick
+}: IconBoxProps) {
 	return (
-		<div className='px-2 py-2 bg-white text-center'>
+		<div className='px-2 py-2 bg-white text-center border-2 border-transparent cursor-pointer hover:border-red-500' onClick={onClick}>
 			<header className='py-2'>
 				<RedIcon name={name} size={32} className='mx-auto' fill='red' />
 			</header>

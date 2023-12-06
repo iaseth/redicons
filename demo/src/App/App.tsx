@@ -12,18 +12,23 @@ export default function App () {
 	const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
 	const currentTab = TABS[currentTabIndex];
 
+	const [cartItems, setCartItems] = React.useState<string[]>([]);
+	const addItemToCard = (itemName: string) => {
+		setCartItems(items => [...items, itemName]);
+	};
+
 	const getContent = () => {
 		switch (currentTab.name) {
 			case "Cart":
-				return <Cart />;
+				return <Cart {...{cartItems}} />;
 			case "Market":
 			default:
-				return <Marketplace />;
+				return <Marketplace {...{addItemToCard}} />;
 		}
 	};
 
 	return (
-		<div className="">
+		<div className="bg-zinc-200">
 			<Header {...{currentTabIndex, setCurrentTabIndex}} />
 			<main className='min-h-screen'>
 				{getContent()}

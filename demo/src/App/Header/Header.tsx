@@ -13,7 +13,7 @@ export default function Header ({
 	currentTabIndex, setCurrentTabIndex
 }: HeaderProps) {
 	return (
-		<header className="bg-red-500 text-white text-center">
+		<header className="bg-red-500 text-white text-center select-none">
 			<section className="max-w-5xl mx-auto flex">
 				{TABS.map((tab, k) => <TabButton key={k} data={tab}
 					onClick={() => setCurrentTabIndex(k)}

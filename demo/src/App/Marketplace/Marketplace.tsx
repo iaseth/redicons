@@ -5,10 +5,12 @@ import React from 'react';
 
 
 interface MarketplaceProps {
-	//
+	addItemToCard: (itemName: string) => void
 }
 
-export default function Marketplace ({}: MarketplaceProps) {
+export default function Marketplace ({
+	addItemToCard
+}: MarketplaceProps) {
 	const [query, setQuery] = React.useState("");
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -45,14 +47,14 @@ export default function Marketplace ({}: MarketplaceProps) {
 	}, []);
 
 	return (
-		<section className="px-2 py-4 bg-slate-200 min-h-screen">
+		<section className="px-2 py-4 min-h-screen">
 			<section className='max-w-5xl mx-auto '>
 				<header className='py-3'>
-					<input className='px-3 py-3 w-full' value={query} ref={inputRef} onChange={e => setQuery(e.target.value)} />
+					<input className='px-3 py-3 w-full focus:outline-blue-600' value={query} ref={inputRef} onChange={e => setQuery(e.target.value)} />
 				</header>
 
-				<section className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-0.5">
-					{filteredIcons.map((redicon, k) => <IconBox key={k} name={redicon.name} />)}
+				<section className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-0.5 select-none">
+					{filteredIcons.map((redicon, k) => <IconBox key={k} name={redicon.name} onClick={() => addItemToCard(redicon.name)} />)}
 				</section>
 			</section>
 		</section>
