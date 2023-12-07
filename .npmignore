@@ -10,5 +10,6 @@ tests/
 Makefile
 *.rx
 *.py
+redicons.full.json
 
 demo/
