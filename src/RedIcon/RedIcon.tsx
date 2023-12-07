@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { CircleData, PathData, RectData, SymbolData, redicons } from "../data";
+import { CircleData, PathData, RectData, RedIconData, SymbolData, redicons } from "../data";
 import Circle from "./Circle";
 import Path from "./Path";
 import Rect from "./Rect";
 import Symbol from "./Symbol";
+import { stockIcons } from "./stockicons";
 
 
 
@@ -20,10 +21,7 @@ const RedIcon: FC<RedIconProps> =  ({
 	className="",
 	fill="currentColor"
 }) => {
-	const icon = redicons.find(icon => icon.name === name);
-	if (!icon) {
-		return null;
-	}
+	const icon: RedIconData = redicons.find(icon => icon.name === name) || stockIcons.questionSquare;
 
 	const style = {
 		height: `${size}px`,

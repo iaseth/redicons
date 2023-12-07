@@ -30,7 +30,7 @@ export interface RectData {
 	transform?: string
 }
 
-interface RedIconData {
+export interface RedIconData {
 	name: string,
 	paths?: PathData[],
 	symbols?: SymbolData[],
