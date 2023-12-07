@@ -5,8 +5,10 @@ from bs4 import BeautifulSoup
 
 
 SVG_DIRPATH = "bootstrap-icons"
+
 OUTPUT_JSON_PATH = "redicons.full.json"
 OUTPUT_MIN_JSON_PATH = "src/redicons.json"
+OUTPUT_NAMES_JSON_PATH = "demo/src/App/iconnames.json"
 
 KNOWN_TAGS = [
 	{"name": "path", "knownAttrs": ["d", "fill-rule", "fill-opacity"]},
@@ -108,7 +110,13 @@ def main():
 
 	with open(OUTPUT_MIN_JSON_PATH, "w") as f:
 		json.dump(jo, f, indent="\t")
-	print(f"Saved: {OUTPUT_MIN_JSON_PATH} ({len(icons)} icons)")
+	print(f"Saved: {OUTPUT_MIN_JSON_PATH} ({len(icons)} optimal icons)")
+
+	namesJson = {}
+	namesJson["iconNames"] = [icon["name"] for icon in icons]
+	with open(OUTPUT_NAMES_JSON_PATH, "w") as f:
+		json.dump(namesJson, f, indent="\t")
+	print(f"Saved: {OUTPUT_NAMES_JSON_PATH} ({len(icons)} icon names)")
 
 
 if __name__ == "__main__":
