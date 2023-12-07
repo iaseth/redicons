@@ -32,11 +32,10 @@ export interface RectData {
 
 interface RedIconData {
 	name: string,
-	className: string,
-	paths: PathData[],
-	symbols: SymbolData[],
-	circles: CircleData[],
-	rects: RectData[]
+	paths?: PathData[],
+	symbols?: SymbolData[],
+	circles?: CircleData[],
+	rects?: RectData[]
 }
 
 export const redicons: RedIconData[] = redIconsJson.icons;
