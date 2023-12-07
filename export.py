@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 SVG_DIRPATH = "bootstrap-icons"
 
 OUTPUT_JSON_PATH = "redicons.full.json"
-OUTPUT_MIN_JSON_PATH = "src/redicons.json"
+OUTPUT_MIN_JSON_PATH = "demo/public/redicons.json"
 OUTPUT_NAMES_JSON_PATH = "demo/src/App/iconnames.json"
 
 KNOWN_TAGS = [
@@ -103,10 +103,10 @@ def main():
 	# some cleanup to minimize the size of npm package
 	array_names = ["paths", "symbols", "circles", "rects"]
 	for icon in icons:
-		del icon["className"]
+		del icon["className"] # delete className as not needed
 		for array_name in array_names:
 			if len(icon[array_name]) == 0:
-				del icon[array_name]
+				del icon[array_name] # delete empty arrays
 
 	with open(OUTPUT_MIN_JSON_PATH, "w") as f:
 		json.dump(jo, f, indent="\t")

@@ -1,4 +1,3 @@
-import redIconsJson from './redicons.json';
 
 
 
@@ -38,4 +37,4 @@ export interface RedIconData {
 	rects?: RectData[]
 }
 
-export const redicons: RedIconData[] = redIconsJson.icons;
+export const redicons: RedIconData[] = [];

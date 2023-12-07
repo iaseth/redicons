@@ -8,7 +8,7 @@ examples/
 tests/
 
 Makefile
-*.rx
+*.md.rx
 *.py
 redicons.full.json
 
