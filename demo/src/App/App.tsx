@@ -5,10 +5,14 @@ import Header from './Header/Header';
 import Marketplace from './Marketplace/Marketplace';
 import { TABS } from './tabs';
 import Cart from './Cart/Cart';
+import { addIconsData } from 'redicons';
+import SplashScreen from './SplashScreen/SplashScreen';
 
 
 
 export default function App () {
+	const [iconsLoaded, setIconsLoaded] = React.useState(false);
+
 	const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
 	const currentTab = TABS[currentTabIndex];
 
@@ -16,6 +20,14 @@ export default function App () {
 	const addItemToCard = (itemName: string) => {
 		setCartItems(items => [...items, itemName]);
 	};
+
+	React.useEffect(() => {
+		fetch("redicons.json").then(data => data.json()).then(jo => {
+			const icons = jo.icons;
+			addIconsData(icons);
+			setIconsLoaded(true);
+		});
+	}, []);
 
 	const getContent = () => {
 		switch (currentTab.name) {
@@ -26,6 +38,10 @@ export default function App () {
 				return <Marketplace {...{addItemToCard}} />;
 		}
 	};
+
+	if (!iconsLoaded) {
+		return <SplashScreen />;
+	}
 
 	return (
 		<div className="bg-zinc-200">

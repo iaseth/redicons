@@ -1,6 +1,6 @@
-import { redicons } from 'redicons';
 import IconBox from './IconBox/IconBox';
 import React from 'react';
+import iconNamesJson from '../iconnames.json';
 
 
 
@@ -14,11 +14,12 @@ export default function Marketplace ({
 	const [query, setQuery] = React.useState("");
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
+	const iconNames = iconNamesJson.iconNames;
 	const filterWords = query.trim().split(" ").map(word => word.trim()).filter(word => word);
-	const filteredIcons = redicons.filter(icon => {
+	const filteredIconNames = iconNames.filter(iconName => {
 		if (filterWords.length === 0) return true;
 		for (const word of filterWords) {
-			if (icon.name.includes(word)) return true;
+			if (iconName.includes(word)) return true;
 		}
 		return false;
 	});
@@ -54,7 +55,7 @@ export default function Marketplace ({
 				</header>
 
 				<section className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-0.5 select-none">
-					{filteredIcons.map((redicon, k) => <IconBox key={k} name={redicon.name} onClick={() => addItemToCard(redicon.name)} />)}
+					{filteredIconNames.map((iconName, k) => <IconBox key={k} name={iconName} onClick={() => addItemToCard(iconName)} />)}
 				</section>
 			</section>
 		</section>
