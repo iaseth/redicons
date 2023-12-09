@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 SVG_DIRPATH = "bootstrap-icons"
 
 OUTPUT_JSON_PATH = "redicons.full.json"
-OUTPUT_MIN_JSON_PATH = "demo/public/redicons.json"
-OUTPUT_NAMES_JSON_PATH = "demo/src/App/iconnames.json"
+OUTPUT_MIN_JSON_PATH = "demo/redicons.json"
+OUTPUT_NAMES_JSON_PATH = "demo/iconnames.json"
 
 KNOWN_TAGS = [
 	{"name": "path", "knownAttrs": ["d", "fill-rule", "fill-opacity"]},
