@@ -17,9 +17,10 @@ export default function App () {
 	const currentTab = TABS[currentTabIndex];
 
 	const [cartItems, setCartItems] = React.useState<string[]>([]);
-	const addItemToCard = (itemName: string) => {
+	const addItemToCart = (itemName: string) => {
 		setCartItems(items => [...items, itemName]);
 	};
+	const alreadyInCart = (itemName: string) => cartItems.includes(itemName);
 
 	React.useEffect(() => {
 		fetch("redicons.json").then(data => data.json()).then(jo => {
@@ -35,7 +36,7 @@ export default function App () {
 				return <Cart {...{cartItems}} />;
 			case "Market":
 			default:
-				return <Marketplace {...{addItemToCard}} />;
+				return <Marketplace {...{addItemToCart, alreadyInCart}} />;
 		}
 	};
 
