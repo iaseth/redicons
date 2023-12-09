@@ -5,7 +5,7 @@ import Header from './Header/Header';
 import Marketplace from './Marketplace/Marketplace';
 import { TABS } from './tabs';
 import Cart from './Cart/Cart';
-import { addIconsData } from 'redicons';
+import { red } from 'redicons';
 import SplashScreen from './SplashScreen/SplashScreen';
 
 
@@ -24,7 +24,7 @@ export default function App () {
 	React.useEffect(() => {
 		fetch("redicons.json").then(data => data.json()).then(jo => {
 			const icons = jo.icons;
-			addIconsData(icons);
+			red.addIcons(icons);
 			setIconsLoaded(true);
 		});
 	}, []);
