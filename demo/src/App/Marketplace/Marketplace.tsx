@@ -51,7 +51,7 @@ export default function Marketplace ({
 		<section className="px-2 py-4 min-h-screen">
 			<section className='max-w-5xl mx-auto '>
 				<header className='py-3'>
-					<input className='px-3 py-3 w-full focus:outline-blue-600' value={query} ref={inputRef} onChange={e => setQuery(e.target.value)} />
+					<input className='px-3 py-3 w-full bg-zinc-950' value={query} ref={inputRef} onChange={e => setQuery(e.target.value)} />
 				</header>
 
 				<section className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-0.5 select-none">

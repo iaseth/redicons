@@ -44,7 +44,7 @@ export default function App () {
 	}
 
 	return (
-		<div className="bg-zinc-200">
+		<div className="bg-zinc-900 text-white mono">
 			<Header {...{currentTabIndex, setCurrentTabIndex}} />
 			<main className='min-h-screen'>
 				{getContent()}
