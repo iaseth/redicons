@@ -1,13 +1,10 @@
 
-default: ts test
+default: npm
 
-prepare: ts test license readme
+prepare: npm license readme
 
-ts: clean
-	tsc
-
-test:
-	npm test
+npm: clean
+	npm run build
 
 publish: prepare
 	npm publish
