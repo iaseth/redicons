@@ -7,6 +7,28 @@ I am using [`readmix`](https://github.com/iaseth/readmix) for generating this RE
 You can view the source file [here](https://github.com/iaseth/redicons/blob/master/README.md.rx).
 
 
+
+## What is RedIcons
+[RedIcons](https://github.com/iaseth/redicons/) makes using Bootstrap icons in your project as easy as this:
+```jsx
+<RedIcon name="arrow-right" />
+```
+
+You can also pass optional props such as `size`, `className` and `fill`:
+```jsx
+<RedIcon name="arrow-right" size={32} className="bg-green-500" fill="white" />
+```
+
+
+
+## Advantages of Redicons
+1. Icons get **bundled with your JavaScript**. No extra network request for each icon. No need to wait for the icons to load. No need for SplashScreens.
+2. Minimal size. Only about **0.2kB per icon** (1kb uncompressed). So if your project uses 50 icons, your bundle size will increase by only 10kB.
+3. **Better readability** (debatable, I know) than using SVGs directly or using font icons.
+4. You have **more control** over your icons with props such as `size`, `fill` and `className`. You can even use Tailwind classes.
+
+
+
 ## How to use RedIcons
 
 #### Installation
@@ -21,7 +43,7 @@ npm i -g redicons-cli@latest
 
 #### Adding icons to your project
 Import `icons` from your `redicons.json`:
-```
+```jsx
 import rediconsJson from "./redicons.json";
 const icons = rediconsJson.icons;
 ```
@@ -32,7 +54,7 @@ You can generate your `redicons.json` with the [`redicons-cli`](https://www.npmj
 or at [redicons.redpapr.com](https://redicons.redpapr.com/).
 
 Add icons to the `red` object with `addIcons()`:
-```
+```jsx
 import { red } from "redicons";
 red.addIcons(icons);
 ```
@@ -46,6 +68,7 @@ Using the component:
 ```
 <RedIcon name="bug" />
 ```
+
 
 
 ## `RedIcon` component
@@ -73,6 +96,7 @@ The `RedIcon` component accepts an optional `fill` prop:
 ```
 <RedIcon name="bug" fill="red" />
 ```
+
 
 
 ## Dependencies
