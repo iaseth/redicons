@@ -18,7 +18,7 @@ You can install the {{ "redicons-cli" | NpmLink }} for managing `redicons` from 
 #### Adding icons to your project
 Import `icons` from your `redicons.json`:
 ```
-import rediconsJson from "redicons.json";
+import rediconsJson from "./redicons.json";
 const icons = rediconsJson.icons;
 ```
 

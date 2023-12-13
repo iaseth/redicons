@@ -22,7 +22,7 @@ npm i -g redicons-cli@latest
 #### Adding icons to your project
 Import `icons` from your `redicons.json`:
 ```
-import rediconsJson from "redicons.json";
+import rediconsJson from "./redicons.json";
 const icons = rediconsJson.icons;
 ```
 
