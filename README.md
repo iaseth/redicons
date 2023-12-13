@@ -8,28 +8,64 @@ You can view the source file [here](https://github.com/iaseth/timenames/blob/mas
 
 
 ## How to use RedIcons
-1. Install the [`redicons`](https://www.npmjs.com/package/redicons) npm package:
-    ```
-    npm install redicons
-    ```
 
-2. Add icons to your project using `addIcons()`:
-    ```
-    import { red } from "redicons"; // importing the red object
-    ```
-    ```
-    red.addIcons(icons); // add icons to red object
-    ```
-    Here, `icons` is an array containing icons in JSON format.
-    Get your icons at [redicons.redpapr.com](https://redicons.redpapr.com/).
+### Install the [`redicons`](https://www.npmjs.com/package/redicons) package
+```
+npm install redicons
+```
 
-3. Now you can use the `RedIcon` component:
-    ```
-    import { RedIcon } from "redicons"; // importing the component
-    ```
-    ```
-    <RedIcon name="check-square-fill" /> // using the component
-    ```
+### Adding icons to your project
+Import the `red` object:
+```
+import { red } from "redicons";
+```
+Add icons to the `red` object with `addIcons()`:
+```
+red.addIcons(icons);
+```
+Here, `icons` is an array containing icons in JSON format.
+Get your icons at [redicons.redpapr.com](https://redicons.redpapr.com/).
+
+### Using the `RedIcon` component
+Import the `RedIcon` component:
+```
+import { RedIcon } from "redicons";
+```
+Using the component:
+```
+<RedIcon name="bug" />
+```
+
+
+## `RedIcon` component
+The `RedIcon` component accepts a mandatory 'name' prop:
+```
+<RedIcon name="bug" />
+```
+
+If the specified icon is not found, the a `question-diamond` icon is displayed.
+```
+<RedIcon name="some-unknown-icon" />
+```
+
+The `RedIcon` component accepts an optional `size` prop:
+```
+<RedIcon name="bug" size={32} />
+```
+
+The `RedIcon` component accepts an optional `className` prop:
+```
+<RedIcon name="bug" className="text-2xl text-red-500" />
+```
+
+The `RedIcon` component accepts an optional `fill` prop:
+```
+<RedIcon name="bug" fill="red" />
+```
+
+
+## `red` object
+The `red` object contains many useful properties.
 
 
 ## Dependencies
