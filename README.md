@@ -4,29 +4,46 @@
 [Bootstrap Icons](https://icons.getbootstrap.com/) in your React projects.
 
 I am using [`readmix`](https://github.com/iaseth/readmix) for generating this README.
-You can view the source file [here](https://github.com/iaseth/timenames/blob/master/README.md.rx).
+You can view the source file [here](https://github.com/iaseth/redicons/blob/master/README.md.rx).
 
 
 ## How to use RedIcons
 
-### Install the [`redicons`](https://www.npmjs.com/package/redicons) package
+#### Installation
+Install the [`redicons`](https://www.npmjs.com/package/redicons) package:
 ```
-npm install redicons
+npm i redicons
+```
+You can install the [`redicons-cli`](https://www.npmjs.com/package/redicons-cli) for managing redicons from your terminal:
+```
+npm i -g redicons-cli@latest
 ```
 
-### Adding icons to your project
+#### Adding icons to your project
+Import `icons` from your `redicons.json`:
+```
+import rediconsJson from "redicons.json";
+```
+```
+const icons = rediconsJson.icons;
+```
+
+Here, `icons` is an array containing icons in JSON format.
+
+You can generate your `redicons.json` with the [`redicons-cli`](https://www.npmjs.com/package/redicons-cli)
+or at [redicons.redpapr.com](https://redicons.redpapr.com/).
+
 Import the `red` object:
 ```
 import { red } from "redicons";
 ```
+
 Add icons to the `red` object with `addIcons()`:
 ```
 red.addIcons(icons);
 ```
-Here, `icons` is an array containing icons in JSON format.
-Get your icons at [redicons.redpapr.com](https://redicons.redpapr.com/).
 
-### Using the `RedIcon` component
+#### Using the `RedIcon` component
 Import the `RedIcon` component:
 ```
 import { RedIcon } from "redicons";
