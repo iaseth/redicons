@@ -1,14 +1,29 @@
 
-# Redicons
-Redicons provides you with an easy way to use [Bootstrap Icons](https://icons.getbootstrap.com/) in your React projects.
+# RedIcons
+[RedIcons](https://redicons.redpapr.com/) provides you with an easy way to use
+[Bootstrap Icons](https://icons.getbootstrap.com/) in your React projects.
 
 I am using {{ gh.link("iaseth/readmix", "readmix") }} for generating this README.
 You can view the source file [here](https://github.com/iaseth/timenames/blob/master/README.md.rx).
 
 
-## How to use redicons in your project
+## How to use RedIcons
 Install the {{ "redicons" | NpmLink }} npm package:
 => npm install redicons
+
+Add icons to your project using `addIcons()`:
+```
+import { red } from 'redicons';
+red.addIcons(icons);
+```
+Here, `icons` is an array containing icons in JSON format.
+Get your icons at [redicons.redpapr.com](https://redicons.redpapr.com/).
+
+Now you can use the `RedIcon` component:
+```
+import { RedIcon } from 'redicons';
+<RedIcon name='check-square-fill' />
+```
 
 
 ## Dependencies
