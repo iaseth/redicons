@@ -8,22 +8,18 @@ You can view the source file [here](https://github.com/iaseth/timenames/blob/mas
 
 
 ## How to use RedIcons
-Install the {{ "redicons" | NpmLink }} npm package:
-=> npm install redicons
+1. Install the {{ "redicons" | NpmLink }} npm package:
+	=> npm install redicons
 
-Add icons to your project using `addIcons()`:
-```
-import { red } from 'redicons';
-red.addIcons(icons);
-```
-Here, `icons` is an array containing icons in JSON format.
-Get your icons at [redicons.redpapr.com](https://redicons.redpapr.com/).
+2. Add icons to your project using `addIcons()`:
+	=> import { red } from "redicons"; // importing the red object
+	=> red.addIcons(icons); // add icons to red object
+	Here, `icons` is an array containing icons in JSON format.
+	Get your icons at [redicons.redpapr.com](https://redicons.redpapr.com/).
 
-Now you can use the `RedIcon` component:
-```
-import { RedIcon } from 'redicons';
-<RedIcon name='check-square-fill' />
-```
+3. Now you can use the `RedIcon` component:
+	=> import { RedIcon } from "redicons"; // importing the component
+	=> <RedIcon name="check-square-fill" /> // using the component
 
 
 ## Dependencies
