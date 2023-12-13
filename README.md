@@ -14,7 +14,7 @@ Install the [`redicons`](https://www.npmjs.com/package/redicons) package:
 ```
 npm i redicons
 ```
-You can install the [`redicons-cli`](https://www.npmjs.com/package/redicons-cli) for managing redicons from your terminal:
+You can install the [`redicons-cli`](https://www.npmjs.com/package/redicons-cli) for managing `redicons` from your terminal:
 ```
 npm i -g redicons-cli@latest
 ```
@@ -23,8 +23,6 @@ npm i -g redicons-cli@latest
 Import `icons` from your `redicons.json`:
 ```
 import rediconsJson from "redicons.json";
-```
-```
 const icons = rediconsJson.icons;
 ```
 
@@ -33,13 +31,9 @@ Here, `icons` is an array containing icons in JSON format.
 You can generate your `redicons.json` with the [`redicons-cli`](https://www.npmjs.com/package/redicons-cli)
 or at [redicons.redpapr.com](https://redicons.redpapr.com/).
 
-Import the `red` object:
-```
-import { red } from "redicons";
-```
-
 Add icons to the `red` object with `addIcons()`:
 ```
+import { red } from "redicons";
 red.addIcons(icons);
 ```
 
@@ -55,7 +49,7 @@ Using the component:
 
 
 ## `RedIcon` component
-The `RedIcon` component accepts a mandatory 'name' prop:
+The `RedIcon` component accepts a mandatory `name` prop:
 ```
 <RedIcon name="bug" />
 ```
@@ -79,10 +73,6 @@ The `RedIcon` component accepts an optional `fill` prop:
 ```
 <RedIcon name="bug" fill="red" />
 ```
-
-
-## `red` object
-The `red` object contains many useful properties.
 
 
 ## Dependencies

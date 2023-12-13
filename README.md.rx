@@ -12,24 +12,26 @@ You can view the source file [here](https://github.com/iaseth/redicons/blob/mast
 #### Installation
 Install the {{ "redicons" | NpmLink }} package:
 => npm i redicons
-You can install the {{ "redicons-cli" | NpmLink }} for managing redicons from your terminal:
+You can install the {{ "redicons-cli" | NpmLink }} for managing `redicons` from your terminal:
 => npm i -g redicons-cli@latest
 
 #### Adding icons to your project
 Import `icons` from your `redicons.json`:
-=> import rediconsJson from "redicons.json";
-=> const icons = rediconsJson.icons;
+```
+import rediconsJson from "redicons.json";
+const icons = rediconsJson.icons;
+```
 
 Here, `icons` is an array containing icons in JSON format.
 
 You can generate your `redicons.json` with the {{ "redicons-cli" | NpmLink }}
 or at [redicons.redpapr.com](https://redicons.redpapr.com/).
 
-Import the `red` object:
-=> import { red } from "redicons";
-
 Add icons to the `red` object with `addIcons()`:
-=> red.addIcons(icons);
+```
+import { red } from "redicons";
+red.addIcons(icons);
+```
 
 #### Using the `RedIcon` component
 Import the `RedIcon` component:
@@ -39,7 +41,7 @@ Using the component:
 
 
 ## `RedIcon` component
-The `RedIcon` component accepts a mandatory 'name' prop:
+The `RedIcon` component accepts a mandatory `name` prop:
 => <RedIcon name="bug" />
 
 If the specified icon is not found, the a `question-diamond` icon is displayed.
@@ -53,10 +55,6 @@ The `RedIcon` component accepts an optional `className` prop:
 
 The `RedIcon` component accepts an optional `fill` prop:
 => <RedIcon name="bug" fill="red" />
-
-
-## `red` object
-The `red` object contains many useful properties.
 
 
 ## Dependencies
