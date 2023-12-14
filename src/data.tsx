@@ -4,7 +4,8 @@
 export interface PathData {
 	d: string,
 	fillRule?: string,
-	fillOpacity?: string
+	fillOpacity?: string,
+	opacity?: string
 }
 
 export interface SymbolData {
@@ -17,14 +18,16 @@ export interface CircleData {
 	cx: string,
 	cy: string,
 	r: string,
-	fillRule?: string
+	fillRule?: string,
+	opacity?: string
 }
 
 export interface EllipseData {
 	cx: string,
 	cy: string,
 	rx: string,
-	ry: string
+	ry: string,
+	opacity?: string
 }
 
 export interface RectData {

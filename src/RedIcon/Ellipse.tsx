@@ -9,7 +9,8 @@ interface EllipseProps {
 
 const Ellipse: FC<EllipseProps> = ({data}) => {
 	return (
-		<ellipse cx={data.cx} cy={data.cy} rx={data.rx} ry={data.ry} />
+		<ellipse cx={data.cx} cy={data.cy} rx={data.rx} ry={data.ry}
+			opacity={data.opacity || 1} />
 	);
 };
 

@@ -10,7 +10,9 @@ interface CircleProps {
 const Circle: FC<CircleProps> = ({data}) => {
 	const fillRule = data.fillRule === "evenodd" ? "evenodd" : "nonzero";
 	return (
-		<circle cx={data.cx} cy={data.cy} r={data.r} fillRule={fillRule} />
+		<circle cx={data.cx} cy={data.cy} r={data.r}
+			fillRule={fillRule}
+			opacity={data.opacity || 1} />
 	);
 };
 

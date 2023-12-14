@@ -10,7 +10,9 @@ interface PathProps {
 const Path: FC<PathProps> = ({data}) => {
 	const fillRule = data.fillRule === "evenodd" ? "evenodd" : "nonzero";
 	return (
-		<path d={data.d} fillRule={fillRule} fillOpacity={data.fillOpacity || 1} />
+		<path d={data.d} fillRule={fillRule}
+			fillOpacity={data.fillOpacity || 1}
+			opacity={data.opacity || 1} />
 	);
 };
 
