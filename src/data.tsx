@@ -16,7 +16,8 @@ export interface SymbolData {
 export interface CircleData {
 	cx: string,
 	cy: string,
-	r: string
+	r: string,
+	fillRule?: string
 }
 
 export interface RectData {
