@@ -77,25 +77,38 @@ The `RedIcon` component accepts a mandatory `name` prop:
 <RedIcon name="bug" />
 ```
 
-If the specified icon is not found, the a `question-diamond` icon is displayed.
+If the specified icon is not found, then a default `question-diamond` icon is displayed.
 ```
 <RedIcon name="some-unknown-icon" />
 ```
+This will display the default icon.
 
 The `RedIcon` component accepts an optional `size` prop:
 ```
 <RedIcon name="bug" size={32} />
 ```
+This will set the `height` and `width` of the icon.
+The default value for `size` is `16`.
 
 The `RedIcon` component accepts an optional `className` prop:
 ```
-<RedIcon name="bug" className="text-2xl text-red-500" />
+<RedIcon name="bug" className="bg-zinc-500 text-yellow-500" />
 ```
+These classes will be added to the `SVG` tag.
+You can use Tailwind classes here.
 
 The `RedIcon` component accepts an optional `fill` prop:
 ```
 <RedIcon name="bug" fill="red" />
 ```
+This will set the `color` of the icon.
+The default value for `fill` is `currentColor`.
+
+The `RedIcon` component accepts an optional `hidden` prop:
+```
+<RedIcon name="bug" fill="red" hidden />
+```
+This will be hidden.
 
 
 

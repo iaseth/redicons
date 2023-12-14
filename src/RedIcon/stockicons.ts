@@ -2,6 +2,10 @@ import { RedIconData } from "../data";
 
 
 
+const hiddenIcon: RedIconData = {
+	"name": "hidden-icon"
+};
+
 const questionSquare: RedIconData = {
 	"name": "question-diamond",
 	"paths": [
@@ -15,5 +19,6 @@ const questionSquare: RedIconData = {
 };
 
 export const stockIcons = {
+	hiddenIcon,
 	questionSquare
 };

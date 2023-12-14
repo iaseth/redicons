@@ -12,16 +12,21 @@ interface RedIconProps {
 	name: string,
 	size?: number,
 	className?: string,
-	fill?: string
+	fill?: string,
+	hidden?: boolean
 }
 
 const RedIcon: FC<RedIconProps> =  ({
 	name,
 	size=16,
 	className="",
-	fill="currentColor"
+	fill="currentColor",
+	hidden=false
 }) => {
-	const icon: RedIconData = redicons.find(icon => icon.name === name) || stockIcons.questionSquare;
+	let icon: RedIconData = redicons.find(icon => icon.name === name) || stockIcons.questionSquare;
+	if (hidden) {
+		icon = stockIcons.hiddenIcon;
+	}
 
 	const style = {
 		height: `${size}px`,
@@ -29,7 +34,7 @@ const RedIcon: FC<RedIconProps> =  ({
 	};
 
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={fill} viewBox="0 0 16 16" className={className} style={style}>
+		<svg xmlns="http://www.w3.org/2000/svg" fill={fill} viewBox="0 0 16 16" className={className} style={style}>
 			{icon.paths && icon.paths.map((path: PathData, k) => <Path key={k} data={path} />)}
 			{icon.symbols && icon.symbols.map((symbol: SymbolData, k) => <Symbol key={k} data={symbol} />)}
 			{icon.circles && icon.circles.map((circle: CircleData, k) => <Circle key={k} data={circle} />)}
