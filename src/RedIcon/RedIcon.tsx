@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { CircleData, PathData, RectData, RedIconData, SymbolData, redicons } from "../data";
+import { CircleData, EllipseData, PathData, RectData, RedIconData, SymbolData, redicons } from "../data";
 import Circle from "./Circle";
 import Path from "./Path";
 import Rect from "./Rect";
 import Symbol from "./Symbol";
 import { stockIcons } from "./stockicons";
+import Ellipse from "./Ellipse";
 
 
 
@@ -38,6 +39,7 @@ const RedIcon: FC<RedIconProps> =  ({
 			{icon.paths && icon.paths.map((path: PathData, k) => <Path key={k} data={path} />)}
 			{icon.symbols && icon.symbols.map((symbol: SymbolData, k) => <Symbol key={k} data={symbol} />)}
 			{icon.circles && icon.circles.map((circle: CircleData, k) => <Circle key={k} data={circle} />)}
+			{icon.ellipses && icon.ellipses.map((ellipse: EllipseData, k) => <Ellipse key={k} data={ellipse} />)}
 			{icon.rects && icon.rects.map((rect: RectData, k) => <Rect key={k} data={rect} />)}
 		</svg>
 	);

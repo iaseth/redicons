@@ -20,6 +20,13 @@ export interface CircleData {
 	fillRule?: string
 }
 
+export interface EllipseData {
+	cx: string,
+	cy: string,
+	rx: string,
+	ry: string
+}
+
 export interface RectData {
 	width: string,
 	height: string,
@@ -35,6 +42,7 @@ export interface RedIconData {
 	paths?: PathData[],
 	symbols?: SymbolData[],
 	circles?: CircleData[],
+	ellipses?: EllipseData[],
 	rects?: RectData[]
 }
 
