@@ -35,7 +35,7 @@ const RedIcon: FC<RedIconProps> =  ({
 	};
 
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" fill={fill} viewBox="0 0 16 16" className={className} style={style}>
+		<svg xmlns="http://www.w3.org/2000/svg" fill={fill} viewBox={icon.viewBox} className={className} style={style}>
 			{icon.paths && icon.paths.map((path: PathData, k) => <Path key={k} data={path} />)}
 			{icon.symbols && icon.symbols.map((symbol: SymbolData, k) => <Symbol key={k} data={symbol} />)}
 			{icon.circles && icon.circles.map((circle: CircleData, k) => <Circle key={k} data={circle} />)}

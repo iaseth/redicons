@@ -42,6 +42,7 @@ export interface RectData {
 
 export interface RedIconData {
 	name: string,
+	viewBox: string,
 	paths?: PathData[],
 	symbols?: SymbolData[],
 	circles?: CircleData[],
